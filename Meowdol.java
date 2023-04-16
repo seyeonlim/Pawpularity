@@ -13,6 +13,8 @@ public class Meowdol {
     public int attractiveness = 0;
     public int pawrency = 50;
     public int dayCount = 1;
+    public int danceLessonCount = 0;
+    public int vocalLessonCount = 0;
 
     public Meowdol(String name, int age) {
         if (age >= 0) {
