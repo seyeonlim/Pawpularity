@@ -1,3 +1,6 @@
+import java.util.Hashtable;
+import java.util.Map;
+
 /**
  * 
  */
@@ -15,6 +18,7 @@ public class Meowdol {
     public int dayCount = 1;
     public int danceLessonCount = 0;
     public int vocalLessonCount = 0;
+    public Hashtable<String, Boolean> wardrobe;
 
     public Meowdol(String name, int age) {
         if (age >= 0) {
@@ -22,6 +26,7 @@ public class Meowdol {
             this.age = age;
         } else {
             throw new RuntimeException("Your Meowdol's age cannot be negative. Σ(;Φ ω Φ)");
+            //should it be sout?
         }
     }
 
