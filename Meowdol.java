@@ -18,6 +18,11 @@ public class Meowdol {
     public int dayCount = 1;
     public int danceLessonCount = 0;
     public int vocalLessonCount = 0;
+    public int TVShowCount = 0;
+    public int adCount = 0;
+    public int radioCount = 0;
+    public int gymCount = 0;
+    public int competitionCount = 0;
     public Hashtable<String, Boolean> wardrobe;
 
     public Meowdol(String name, int age) {

@@ -1,13 +1,8 @@
-public class TrainingAcademy {
+public class TrainingAcademy extends Building{
 
-    String name;
-    int xPosition;
-    int yPosition;
 
     public TrainingAcademy(String name, int xPosition, int yPosition) {
-        this.name = name;
-        this.xPosition = xPosition;
-        this.yPosition = yPosition;
+        super(name, xPosition, yPosition);
     }
 
     public void danceLesson(Meowdol meowdol) {
