@@ -30,12 +30,12 @@ public class Store extends Building{
           }
     }
 
-    public void buyBeret(Meowdol meowdol) {
-        if (meowdol.wardrobe.containsKey("Beret")) {
-            System.out.println(meowdol.name + " already has a beret. Let's not waste our pawrency!");
+    public void buyBirthdayCone(Meowdol meowdol) {
+        if (meowdol.wardrobe.containsKey("Birthday Cone")) {
+            System.out.println(meowdol.name + " already has a birthday cone. Let's not waste our pawrency!");
           } else if (meowdol.pawrency >= 100){
-            meowdol.wardrobe.put("Beret", true);
-            System.out.println("A beret has been added to " + meowdol.name + "'s wardrobe. YAY!");
+            meowdol.wardrobe.put("Birthday Cone", true);
+            System.out.println("A birthday cone has been added to " + meowdol.name + "'s wardrobe. YAY!");
             meowdol.pawrency -= 100;
           } else {
             System.out.println(meowdol.name + " doesn't have enough pawrency... Let's make some money first!");

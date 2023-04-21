@@ -1,5 +1,4 @@
 import java.util.Hashtable;
-import java.util.Map;
 
 /**
  * 
@@ -23,7 +22,7 @@ public class Meowdol {
     public int radioCount = 0;
     public int gymCount = 0;
     public int competitionCount = 0;
-    public Hashtable<String, Boolean> wardrobe;
+    public Hashtable<String, Boolean> wardrobe = new Hashtable<String, Boolean>();
 
     public Meowdol(String name, int age) {
         if (age >= 0) {
@@ -52,6 +51,38 @@ public class Meowdol {
         System.out.println("* Fame: " + this.fame);
         System.out.println("* Attractiveness: " + this.attractiveness);
         System.out.println("======================");
+    }
+
+    public void walk(String direction) {
+        if (direction == "North" && this.yPosition > 0) {
+            this.yPosition++;
+        } else {
+            System.out.println(this.name + " reached the end of the map. Let's go to another direction!");
+        }
+        if (direction == "South" && this.yPosition < 7) {
+            this.yPosition--;
+        } else {
+            System.out.println(this.name + " reached the end of the map. Let's go to another direction!");
+        }
+        if (direction == "East" && this.xPosition > 0) {
+            this.xPosition++;
+        } else {
+            System.out.println(this.name + " reached the end of the map. Let's go to another direction!");
+        }
+        if (direction == "West" && this.xPosition < 7) {
+            this.xPosition--;
+        } else {
+            System.out.println(this.name + " reached the end of the map. Let's go to another direction!");
+        }
+    }
+
+    public void takeTaxi(int newXPosition, int newYPosition) {
+        if (this.pawrency >= 100) {
+            this.xPosition = newXPosition;
+            this.yPosition = newYPosition;
+        } else {
+            System.out.println(this.name + " doesn't have enough pawrency to take the taxi! T^T");
+        }
     }
 
     public static void main(String[] args) {
