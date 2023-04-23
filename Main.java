@@ -85,6 +85,7 @@ public class Main {
 
         while (true) {
             if (scanner.hasNextInt()) {
+                scanner.nextLine();
                 // home
                 if (player.xPosition == 0 && player.yPosition == 0) {
                     while (true) {
@@ -97,9 +98,21 @@ public class Main {
                             System.out.println(player.name + " opened the wardrobe. This is what they have:");
                             home.seeWardrobe(player);
                             System.out.println("What do you want" + player.name + "to do?");
-                            System.out.println("1. Wear fedora");
-                            System.out.println("2. Wear beanie");
-                            System.out.println("3. Wear birthday cone"); // need to work more
+                            System.out.println("1. Wear fedora (This can be done only when you have a fedora.)");
+                            System.out.println("2. Wear beanie (This can be done only when you have a fedora.)");
+                            System.out.println("3. Wear birthday cone (This can be done only when you have a fedora.)"); // need to work more
+                            System.out.println("4. Close wardrobe");
+                            if (input == 1 && player.wardrobe.containsKey("Fedora")) {
+                                home.wearFedora(player);
+                            } else if (input == 2 && player.wardrobe.containsKey("Beanie")) {
+                                home.wearBeanie(player);
+                            } else if (input == 3 && player.wardrobe.containsKey("Birthday Cone")) {
+                                home.wearBirthdayCone(player);
+                            } else if (input == 4) {
+                                System.out.println("You closed the wardrobe.");
+                            } else {
+                                System.out.println("Your input is invalid. (You either put");
+                            }
                         } else if (input == 2) {
                             home.sleep(player);
                         } else if (input == 3) {
