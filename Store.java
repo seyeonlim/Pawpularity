@@ -1,8 +1,8 @@
 public class Store extends Building{
 
     
-    public Store(String name, int xPosition, int yPosition) {
-        super(name, xPosition, yPosition);
+    public Store(String name, int row, int column) {
+        super(name, row, column);
     }
 
     //should check if the store the user is in is clothing store not beauty salon

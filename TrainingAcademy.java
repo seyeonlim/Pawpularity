@@ -1,8 +1,8 @@
 public class TrainingAcademy extends Building{
 
 
-    public TrainingAcademy(String name, int xPosition, int yPosition) {
-        super(name, xPosition, yPosition);
+    public TrainingAcademy(String name, int row, int column) {
+        super(name, row, column);
     }
 
     public void danceLesson(Meowdol meowdol) {

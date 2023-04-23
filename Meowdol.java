@@ -8,7 +8,6 @@ public class Meowdol {
     public String name;
     public int xPosition = 0;
     public int yPosition = 0;
-    public int age;
     public int danceEXP = 0;
     public int vocalEXP = 0;
     public int fame = 0;
@@ -24,17 +23,10 @@ public class Meowdol {
     public int competitionCount = 0;
     public Hashtable<String, Boolean> wardrobe = new Hashtable<String, Boolean>();
 
-    public Meowdol(String name, int age) {
-        if (age >= 0) {
+    public Meowdol(String name) {
             this.name = name;
-            this.age = age;
-            this.xPosition = 0;
-            this.yPosition = 0;
-        } else {
-            throw new RuntimeException("Your Meowdol's age cannot be negative. Σ(;Φ ω Φ)");
-            //should it be sout?
         }
-    }
+    
 
     public void changeName(String newName) {
         this.name = newName;
@@ -47,7 +39,7 @@ public class Meowdol {
 
     public void checkSkills() {
         System.out.println("=====Skill Report=====");
-        System.out.println("/ᐠ｡ꞈ｡ᐟ\\: " + this.name + " (" + this.age + ")");
+        System.out.println("/ᐠ｡ꞈ｡ᐟ\\: " + this.name);
         System.out.println("* Dance EXP: " + this.danceEXP);
         System.out.println("* Vocal EXP: " + this.vocalEXP);
         System.out.println("* Fame: " + this.fame);
@@ -55,21 +47,30 @@ public class Meowdol {
         System.out.println("======================");
     }
 
+    public void walk(String direction, Map map) {
+        if (direction == "North" && this.yPosition > 0) {
+            this.yPosition--;
+        } else if (direction == "South" && this.yPosition < 9) {
+            this.yPosition++;
+        } else if (direction == "East" && this.xPosition < 9) {
+            this.xPosition++;
+        } else if (direction == "West" && this.xPosition > 0) {
+            this.xPosition--;
+        } else {
+            System.out.println(this.name + " reached the end of the map. Let's go to another direction!");
+        }
+        map.updateMap(this);
+    }
+
     public void takeTaxi(int newXPosition, int newYPosition) {
         if (this.pawrency >= 100) {
             this.xPosition = newXPosition;
             this.yPosition = newYPosition;
+            this.pawrency -= 100;
         } else {
             System.out.println(this.name + " doesn't have enough pawrency to take the taxi! T^T");
         }
     }
 
-    public static void main(String[] args) {
-        Meowdol cat = new Meowdol("Steve", 11);
-        cat.checkBalance();
-        cat.checkSkills();
-        cat.changeName("Lisa");
-        cat.checkSkills();
-    }
 
 }

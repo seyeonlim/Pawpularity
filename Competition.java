@@ -1,6 +1,10 @@
 import java.util.Random;
 
-public class Competition {
+public class Competition extends Building{
+
+    public Competition(String name, int row, int column) {
+        super(name, row, column);
+    }
 
     Random random = new Random();
     int randomNumber = random.nextInt(4);
@@ -80,10 +84,5 @@ public class Competition {
 
     }
 
-    public static void main(String[] args) {
-        Meowdol cat = new Meowdol("Steve", 11);
-        Competition competition = new Competition();
-        competition.compete(cat);
-    }
 
 }

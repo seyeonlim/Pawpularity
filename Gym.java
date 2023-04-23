@@ -1,4 +1,8 @@
-public class Gym {
+public class Gym extends Building{
+
+    public Gym(String name, int row, int column) {
+        super(name, row, column);
+    }
     
     public void exercise(Meowdol meowdol) {
         if (meowdol.gymCount < 2) {
@@ -24,11 +28,6 @@ public class Gym {
         
     }
 
-    public static void main(String[] args) {
-        Meowdol steve = new Meowdol("Steve", 0);
-        Gym gym = new Gym();
-        gym.exercise(steve);
-    }
 }
 
 

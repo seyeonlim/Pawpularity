@@ -1,12 +1,12 @@
 public class Building {
     
     public String name;
-    public int xPosition;
-    public int yPosition;
+    public int row;
+    public int column;
 
-    public Building(String name, int xPosition, int yPosition) {
+    public Building(String name, int row, int column) {
         this.name = name;
-        this.xPosition = xPosition;
-        this.yPosition = yPosition;
+        this.row = row;
+        this.column = column;
     }
 }

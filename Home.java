@@ -1,6 +1,10 @@
 import java.util.Map;
 
-public class Home {
+public class Home extends Building{
+
+    public Home(String name, int row, int column) {
+        super(name, row, column);
+    }
 
     public void sleep(Meowdol meowdol) {
         // make sure to reset all counts
@@ -107,19 +111,5 @@ public class Home {
 
     }
 
-    public static void main(String[] args) {
-        Meowdol steve = new Meowdol("Steve", 0);
-        steve.pawrency += 1000;
-        Home home = new Home();
-        Store store = new Store("Meow", 0, 0);
-        store.buyFedora(steve);
-        store.buyBeanie(steve);
-        store.buyBirthdayCone(steve);
-        home.seeWardrobe(steve);
-        home.wearFedora(steve);
-        home.wearBeanie(steve);
-        home.takeOffHat(steve);
-        home.wearBirthdayCone(steve);
 
-    }
 }

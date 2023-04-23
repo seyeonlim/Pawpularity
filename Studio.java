@@ -1,7 +1,7 @@
 public class Studio extends Building {
 
-    public Studio(String name, int xPosition, int yPosition) {
-        super(name, xPosition, yPosition);
+    public Studio(String name, int row, int column) {
+        super(name, row, column);
     }
 
     public void shootTVShow(Meowdol meowdol) {
