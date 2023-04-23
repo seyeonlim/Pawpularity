@@ -63,7 +63,7 @@ public class Main {
         System.out.print("Name your meowdol: ");
         meowdolName = scanner.nextLine();
         System.out.println(
-                "Great! Your meowdol's name is " + meowdolName + ".");
+                "Great! Your meowdol's name is " + meowdolName + ". Type any character or number to continue.");
 
         Meowdol player = new Meowdol(meowdolName);
         Map map = new Map(player);
@@ -85,31 +85,41 @@ public class Main {
 
         while (true) {
             if (scanner.hasNextInt()) {
-                input = scanner.nextInt();
                 // home
                 if (player.xPosition == 0 && player.yPosition == 0) {
-                    System.out.println("You are at home. What do you want " + player.name + " to do?");
-                    System.out.println("1. Open wardrobe");
-                    System.out.println("2. Go to bed");
-                    System.out.println("3. Go outside");
-                    if (input == 1) {
-                        System.out.println(player.name + " opened the wardrobe. This is what they have:");
-                        home.seeWardrobe(player);
-                        System.out.println("What do you want" + player.name + "to do?");
-                        System.out.println("1. Wear fedora");
-                        System.out.println("2. Wear beanie");
-                        System.out.println("3. Wear birthday cone"); // need to work more
-                    } else if (input == 2) {
-                        System.out.println(player.name + " went to bed.");
-                        home.sleep(player);
-                        System.out.println("It is now day " + player.dayCount + "!"); // need to give options again
-                    } else if (input == 3) {
-                        break;
-                    } else {
-                        System.out.println(
-                                "Please enter a valid number! Your response should not include any characters nor numbers that are not in the option.");
-                        scanner.next();
+                    while (true) {
+                        System.out.println("You are at home. What do you want " + player.name + " to do?");
+                        System.out.println("1. Open wardrobe");
+                        System.out.println("2. Go to bed");
+                        System.out.println("3. Go outside");
+                        input = scanner.nextInt();
+                        if (input == 1) {
+                            System.out.println(player.name + " opened the wardrobe. This is what they have:");
+                            home.seeWardrobe(player);
+                            System.out.println("What do you want" + player.name + "to do?");
+                            System.out.println("1. Wear fedora");
+                            System.out.println("2. Wear beanie");
+                            System.out.println("3. Wear birthday cone"); // need to work more
+                        } else if (input == 2) {
+                            home.sleep(player);
+                        } else if (input == 3) {
+                            player.yPosition = 1;
+                            break;
+                        } else {
+                            System.out.println(
+                                    "Please enter a valid number! Your response should not include any characters nor numbers that are not in the option.");
+                            System.out.println("Enter any character or number to continue.");
+                            scanner.next();
+                        }
                     }
+                    // Clothing store
+                } else if (player.xPosition == 1 && player.yPosition == 5) {
+                    System.out.println("You are at the clothing store. What do you want your meowdol to do?");
+                    System.out.println("1. Buy a fedora");
+                    System.out.println("2. Buy a beanie");
+                    System.out.println("3. Buy a birthday cone");
+
+                    // When user is not inside a building
                 } else {
                     System.out.println("You are outside. These are your options:");
                     System.out.println("1. Walk");
@@ -129,16 +139,8 @@ public class Main {
                         "Please enter a valid number! Your response should not include any characters.");
                 scanner.next();
             }
+
             /*
-             * // clothing store
-             * if (player.xPosition == 1 && player.yPosition == 5) {
-             * System.out.
-             * println("You are at the clothing store. What do you want your meowdol to do?"
-             * );
-             * System.out.println("1. Buy a fedora");
-             * System.out.println("2. Buy a beanie");
-             * System.out.println("3. Buy a birthday cone");
-             * }
              * // beauty salon
              * if (player.xPosition == 3 && player.yPosition == 5) {
              * System.out.
@@ -205,7 +207,7 @@ public class Main {
 
         }
 
-        scanner.close();
+        // scanner.close();
 
     }
 }
