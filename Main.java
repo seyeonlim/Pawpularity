@@ -53,8 +53,6 @@ public class Main {
                 "You can't just train you meowdol at your house; You and your meowdol should walk to where you want to go!");
         System.out.println(
                 "The buildings are marked on the map, and you can open your map whenever you want to see your current position.");
-        System.out.println(
-                "But watch out, you might encounter paparazzis on your way! If you're lucky, you can meet your meowdol's fans, too ฅ^•ﻌ•^ฅ");
         System.out.println(" ");
         System.out.println(
                 "That's it for the tutorial! I gave your meowdol 50 pawrency as a welcome gift. ENJOY! ฅ^•ﻌ•^ฅ");
@@ -77,8 +75,6 @@ public class Main {
         Competition competition = new Competition("Competition", 6, 8);
         Gym gym = new Gym("Gym", 2, 6);
         Home home = new Home("Home", 0, 0);
-        Paparazzi p1 = new Paparazzi("Paparazzi 1", 3, 4);
-        Paparazzi p2 = new Paparazzi("Paparazzi 2", 7, 1);
 
         int input = 0;
 
@@ -381,48 +377,49 @@ public class Main {
                         studio.shootAd(player);
                         break;
                     case 3:
-                    System.out.println("Which direction would you like to go? @ is your current position.");
-                    map.showMap(player);
-                    System.out.println("1. Walk north");
-                    System.out.println("2. Walk south");
-                    System.out.println("3. Walk east");
-                    System.out.println("4. Walk west");
-                    int directionChoice = scanner.nextInt();
-                    boolean validDirectionChoice = false;
-                    while (!validDirectionChoice) {
-                        try {
-                            directionChoice = scanner.nextInt();
-                            if (directionChoice < 1 || directionChoice > 4) {
-                                System.out.println("Invalid choice. Please enter a number between 1 and 4.");
-                            } else {
-                                validDirectionChoice = true;
+                        System.out.println("Which direction would you like to go? @ is your current position.");
+                        map.showMap(player);
+                        System.out.println("1. Walk north");
+                        System.out.println("2. Walk south");
+                        System.out.println("3. Walk east");
+                        System.out.println("4. Walk west");
+                        int directionChoice = scanner.nextInt();
+                        boolean validDirectionChoice = false;
+                        while (!validDirectionChoice) {
+                            try {
+                                directionChoice = scanner.nextInt();
+                                if (directionChoice < 1 || directionChoice > 4) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                                } else {
+                                    validDirectionChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
                             }
-                        } catch (InputMismatchException e) {
-                            System.out.println("Invalid input. Please enter a number.");
-                            scanner.next(); // discard invalid input
                         }
-                    }
-                    switch (directionChoice) {
-                        case 1:
-                            player.walk("North", map);
-                            break;
-                        case 2:
-                            player.walk("South", map);
-                            break;
-                        case 3:
-                            player.walk("East", map);
-                            break;
-                        case 4:
-                            player.walk("West", map);
-                            break;
+                        switch (directionChoice) {
+                            case 1:
+                                player.walk("North", map);
+                                break;
+                            case 2:
+                                player.walk("South", map);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                            case 4:
+                                player.walk("West", map);
+                                break;
 
-                    }
-                    break;
+                        }
+                        break;
 
                 }
                 continue;
+
             } else if (player.xPosition == 5 && player.yPosition == 9) {
-                System.out.println("You are at the studio.");
+                System.out.println("You are at the radio station.");
                 System.out.println("What do you want your meowdol to do?");
                 System.out.println("1. Record a radio program");
                 System.out.println("2. Go outside");
@@ -446,49 +443,308 @@ public class Main {
                         studio.recordRadioProgram(player);
                         break;
                     case 2:
-                    System.out.println("Which direction would you like to go? @ is your current position.");
-                    map.showMap(player);
-                    System.out.println("1. Walk north");
-                    System.out.println("2. Walk south");
-                    System.out.println("3. Walk east");
-                    System.out.println("4. Walk west");
-                    int directionChoice = scanner.nextInt();
-                    boolean validDirectionChoice = false;
-                    while (!validDirectionChoice) {
-                        try {
-                            directionChoice = scanner.nextInt();
-                            if (directionChoice < 1 || directionChoice > 4) {
-                                System.out.println("Invalid choice. Please enter a number between 1 and 4.");
-                            } else {
-                                validDirectionChoice = true;
+                        System.out.println("Which direction would you like to go? @ is your current position.");
+                        map.showMap(player);
+                        System.out.println("1. Walk north");
+                        System.out.println("2. Walk south");
+                        System.out.println("3. Walk east");
+                        System.out.println("4. Walk west");
+                        int directionChoice = scanner.nextInt();
+                        boolean validDirectionChoice = false;
+                        while (!validDirectionChoice) {
+                            try {
+                                directionChoice = scanner.nextInt();
+                                if (directionChoice < 1 || directionChoice > 4) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                                } else {
+                                    validDirectionChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
                             }
-                        } catch (InputMismatchException e) {
-                            System.out.println("Invalid input. Please enter a number.");
-                            scanner.next(); // discard invalid input
                         }
-                    }
-                    switch (directionChoice) {
-                        case 1:
-                            player.walk("North", map);
-                            break;
-                        case 2:
-                            player.walk("South", map);
-                            break;
-                        case 3:
-                            player.walk("East", map);
-                            break;
-                        case 4:
-                            player.walk("West", map);
-                            break;
+                        switch (directionChoice) {
+                            case 1:
+                                player.walk("North", map);
+                                break;
+                            case 2:
+                                player.walk("South", map);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                            case 4:
+                                player.walk("West", map);
+                                break;
 
-                    }
-                    break;
+                        }
+                        break;
 
                 }
                 continue;
-            }
-            
-            else {
+
+            } else if (player.xPosition == 4 && player.yPosition == 0) {
+                System.out.println("You are at the dance academy.");
+                System.out.println("What do you want your meowdol to do?");
+                System.out.println("1. Get dance lesson");
+                System.out.println("2. Go outside");
+                int choice = scanner.nextInt();
+                boolean validChoice = false;
+                while (!validChoice) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 1 || choice > 2) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 2.");
+                        } else {
+                            validChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
+                    }
+                }
+                switch (choice) {
+                    case 1:
+                        danceAcademy.danceLesson(player);
+                        break;
+                    case 2:
+                        System.out.println("Which direction would you like to go? @ is your current position.");
+                        map.showMap(player);
+                        System.out.println("1. Walk north");
+                        System.out.println("2. Walk south");
+                        System.out.println("3. Walk east");
+                        System.out.println("4. Walk west");
+                        int directionChoice = scanner.nextInt();
+                        boolean validDirectionChoice = false;
+                        while (!validDirectionChoice) {
+                            try {
+                                directionChoice = scanner.nextInt();
+                                if (directionChoice < 1 || directionChoice > 4) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                                } else {
+                                    validDirectionChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
+                            }
+                        }
+                        switch (directionChoice) {
+                            case 1:
+                                player.walk("North", map);
+                                break;
+                            case 2:
+                                player.walk("South", map);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                            case 4:
+                                player.walk("West", map);
+                                break;
+
+                        }
+                        break;
+
+                }
+                continue;
+            } else if (player.xPosition == 2 && player.yPosition == 2) {
+                System.out.println("You are at the vocal academy.");
+                System.out.println("What do you want your meowdol to do?");
+                System.out.println("1. Get vocal lesson");
+                System.out.println("2. Go outside");
+                int choice = scanner.nextInt();
+                boolean validChoice = false;
+                while (!validChoice) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 1 || choice > 2) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 2.");
+                        } else {
+                            validChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
+                    }
+                }
+                switch (choice) {
+                    case 1:
+                        danceAcademy.vocalLesson(player);
+                        break;
+                    case 2:
+                        System.out.println("Which direction would you like to go? @ is your current position.");
+                        map.showMap(player);
+                        System.out.println("1. Walk north");
+                        System.out.println("2. Walk south");
+                        System.out.println("3. Walk east");
+                        System.out.println("4. Walk west");
+                        int directionChoice = scanner.nextInt();
+                        boolean validDirectionChoice = false;
+                        while (!validDirectionChoice) {
+                            try {
+                                directionChoice = scanner.nextInt();
+                                if (directionChoice < 1 || directionChoice > 4) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                                } else {
+                                    validDirectionChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
+                            }
+                        }
+                        switch (directionChoice) {
+                            case 1:
+                                player.walk("North", map);
+                                break;
+                            case 2:
+                                player.walk("South", map);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                            case 4:
+                                player.walk("West", map);
+                                break;
+
+                        }
+                        break;
+
+                }
+                continue;
+            } else if (player.xPosition == 8 && player.yPosition == 6) {
+                System.out.println("You are at a competition.");
+                System.out.println("What do you want your meowdol to do?");
+                System.out.println("1. Compete with other meowdol");
+                System.out.println("2. Go outside");
+                int choice = scanner.nextInt();
+                boolean validChoice = false;
+                while (!validChoice) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 1 || choice > 2) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 2.");
+                        } else {
+                            validChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
+                    }
+                }
+                switch (choice) {
+                    case 1:
+                        competition.compete(player);
+                        break;
+                    case 2:
+                        System.out.println("Which direction would you like to go? @ is your current position.");
+                        map.showMap(player);
+                        System.out.println("1. Walk north");
+                        System.out.println("2. Walk south");
+                        System.out.println("3. Walk east");
+                        System.out.println("4. Walk west");
+                        int directionChoice = scanner.nextInt();
+                        boolean validDirectionChoice = false;
+                        while (!validDirectionChoice) {
+                            try {
+                                directionChoice = scanner.nextInt();
+                                if (directionChoice < 1 || directionChoice > 4) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                                } else {
+                                    validDirectionChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
+                            }
+                        }
+                        switch (directionChoice) {
+                            case 1:
+                                player.walk("North", map);
+                                break;
+                            case 2:
+                                player.walk("South", map);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                            case 4:
+                                player.walk("West", map);
+                                break;
+
+                        }
+                        break;
+
+                }
+                continue;
+            } else if (player.xPosition == 6 & player.yPosition == 2) {
+                System.out.println("You are at the gym.");
+                System.out.println("What do you want your meowdol to do?");
+                System.out.println("1. Exercise");
+                System.out.println("2. Go outside");
+                int choice = scanner.nextInt();
+                boolean validChoice = false;
+                while (!validChoice) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 1 || choice > 2) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 2.");
+                        } else {
+                            validChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
+                    }
+                }
+                switch (choice) {
+                    case 1:
+                        gym.exercise(player);
+                        break;
+                    case 2:
+                        System.out.println("Which direction would you like to go? @ is your current position.");
+                        map.showMap(player);
+                        System.out.println("1. Walk north");
+                        System.out.println("2. Walk south");
+                        System.out.println("3. Walk east");
+                        System.out.println("4. Walk west");
+                        int directionChoice = scanner.nextInt();
+                        boolean validDirectionChoice = false;
+                        while (!validDirectionChoice) {
+                            try {
+                                directionChoice = scanner.nextInt();
+                                if (directionChoice < 1 || directionChoice > 4) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                                } else {
+                                    validDirectionChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
+                            }
+                        }
+                        switch (directionChoice) {
+                            case 1:
+                                player.walk("North", map);
+                                break;
+                            case 2:
+                                player.walk("South", map);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                            case 4:
+                                player.walk("West", map);
+                                break;
+
+                        }
+                        break;
+
+                }
+                continue;
+            } else {
                 System.out.println("Which direction would you like to go? @ is your current position.");
                 map.showMap(player);
                 System.out.println("1. Walk north");
