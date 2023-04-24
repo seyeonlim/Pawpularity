@@ -24,8 +24,16 @@ public class Meowdol {
     public Hashtable<String, Boolean> wardrobe = new Hashtable<String, Boolean>();
 
     public Meowdol(String name) {
-            this.name = name;
+        this.name = name;
+    }
+
+    public Boolean validate4(int input) {
+        if (input < 1 || input > 4) {
+            return false;
+        } else {
+            return true;
         }
+    }
 
     public void checkBalance() {
         System.out.println(this.name + " has " + this.pawrency + " pawrency.");
@@ -41,7 +49,16 @@ public class Meowdol {
         System.out.println("======================");
     }
 
-    public void walk(String direction, Map map) {
+    public void showWalkOptions(Mapp map) {
+        System.out.println("Which direction would you like to go? @ is your current position.");
+        map.showMap(this);
+        System.out.println("1. Walk north");
+        System.out.println("2. Walk south");
+        System.out.println("3. Walk east");
+        System.out.println("4. Walk west");
+    }
+
+    public void walk(String direction, Mapp map) {
         if (direction == "North" && this.yPosition > 0) {
             this.yPosition--;
         } else if (direction == "South" && this.yPosition < 9) {
@@ -56,5 +73,28 @@ public class Meowdol {
         map.updateMap(this);
     }
 
+    public void makeWalkChoice(int choice, Mapp map) {
+        Boolean directionChoice = validate4(choice);
+        if (directionChoice) {
+            switch (choice) {
+                case 1:
+                    walk("North", map);
+                    break;
+                case 2:
+                    walk("South", map);
+                    break;
+                case 3:
+                    walk("East", map);
+                    break;
+                case 4:
+                    walk("West", map);
+                    break;
+
+            }
+        } else {
+            System.out.println("Invalid choice. Please try again.");
+        }
+
+    }
 
 }

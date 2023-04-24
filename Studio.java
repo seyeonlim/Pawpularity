@@ -1,7 +1,86 @@
+import java.util.Scanner;
+
 public class Studio extends Building {
 
     public Studio(String name, int row, int column) {
         super(name, row, column);
+    }
+
+    public void showOptionsStudio() {
+        System.out.println("You are at the studio.");
+        System.out.println("What do you want your meowdol to do?");
+        System.out.println("1. Film a TV show");
+        System.out.println("2. Shoot an advertisement");
+        System.out.println("3. Go outside");
+    }
+
+    public void showOptionsRadio() {
+        System.out.println("You are at the radio station.");
+        System.out.println("What do you want your meowdol to do?");
+        System.out.println("1. Record a radio program");
+        System.out.println("2. Go outside");
+
+    }
+
+    public Boolean validate3(int input) {
+        if (input < 1 || input > 3) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public Boolean validate4(int input) {
+        if (input < 1 || input > 4) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public Boolean validate2(int input) {
+        if (input < 1 || input > 2) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void makeStudioChoice(Meowdol meowdol, Mapp map, int choice, Scanner scanner) {
+        Boolean validation1 = validate3(choice);
+        if (validation1) {
+            switch (choice) {
+                case 1:
+                    shootTVShow(meowdol);
+                    break;
+                case 2:
+                    shootAd(meowdol);
+                    break;
+                case 3:
+                    meowdol.showWalkOptions(map);
+                    meowdol.makeWalkChoice(scanner.nextInt(), map);
+                    break;
+            }
+        } else {
+            System.out.println("Invalid choice. Please try again.");
+        }
+    }
+
+    public void makeRadioChoice(Meowdol meowdol, Studio studio, Mapp map, int choice, Scanner scanner) {
+        Boolean validation1 = validate2(choice);
+        if (validation1) {
+            switch (choice) {
+                case 1:
+                    recordRadioProgram(meowdol);
+                    break;
+                case 2:
+                    meowdol.showWalkOptions(map);
+                    meowdol.makeWalkChoice(scanner.nextInt(), map);
+                    break;
+            }
+        } else {
+            System.out.println("Invalid choice. Please try again.");
+        }
     }
 
     public void shootTVShow(Meowdol meowdol) {

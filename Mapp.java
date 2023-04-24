@@ -1,9 +1,11 @@
-public class Map {
+import java.util.Scanner;
 
-    private char[][] map;
-    private char userPosition = '@';
+public class Mapp {
 
-    public Map(Meowdol meowdol) {
+    public char[][] map; //make this as building array instead
+    public char userPosition = '@';
+
+    public Mapp(Meowdol meowdol) {
         map = new char[10][10];
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
@@ -44,6 +46,15 @@ public class Map {
         }
     }
 
+    public Boolean validate4(int input) {
+        if (input < 1 || input > 4) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+
     public void updateMap(Meowdol meowdol) {
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
@@ -54,7 +65,40 @@ public class Map {
         }
         map[meowdol.yPosition][meowdol.xPosition] = userPosition;
     }
+}
 
+    // execute the walk method and offer options for walking direction
+    
+    /* 
+    while (!validDirectionChoice) {
+        try {
+            directionChoice = scanner.nextInt();
+            if (directionChoice < 1 || directionChoice > 4) {
+                System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+            } else {
+                validDirectionChoice = true;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.next(); // discard invalid input
+        }
+    }
+    switch (directionChoice) {
+        case 1:
+            player.walk("North", map);
+            break;
+        case 2:
+            player.walk("South", map);
+            break;
+        case 3:
+            player.walk("East", map);
+            break;
+        case 4:
+            player.walk("West", map);
+            break;
+
+    }
+    break;
 
 
 public static void main(String[] args) {
@@ -64,3 +108,4 @@ public static void main(String[] args) {
 }
 }
 
+*/

@@ -1,8 +1,73 @@
-public class TrainingAcademy extends Building{
+import java.util.Scanner;
 
+public class TrainingAcademy extends Building {
 
     public TrainingAcademy(String name, int row, int column) {
         super(name, row, column);
+    }
+
+    public void showOptionsDance() {
+        System.out.println("You are at the dance academy.");
+        System.out.println("What do you want your meowdol to do?");
+        System.out.println("1. Get dance lesson");
+        System.out.println("2. Go outside");
+    }
+
+    public void showOptionsVocal() {
+        System.out.println("You are at the vocal academy.");
+        System.out.println("What do you want your meowdol to do?");
+        System.out.println("1. Get vocal lesson");
+        System.out.println("2. Go outside");
+    }
+
+    public Boolean validate2(int input) {
+        if (input < 1 || input > 2) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public Boolean validate4(int input) {
+        if (input < 1 || input > 4) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void makeChoiceDance(Meowdol meowdol, Mapp map, int choice, Scanner scanner) {
+        Boolean validation1 = validate2(choice);
+        if (validation1) {
+            switch (choice) {
+                case 1:
+                    danceLesson(meowdol);
+                    break;
+                case 2:
+                    meowdol.showWalkOptions(map);
+                    meowdol.makeWalkChoice(scanner.nextInt(), map);
+                    break;
+            }
+        } else {
+            System.out.println("Invalid choice. Please try again.");
+        }
+    }
+
+    public void makeChoiceVocal(Meowdol meowdol, Mapp map, int choice, Scanner scanner) {
+        Boolean validation1 = validate2(choice);
+        if (validation1) {
+            switch (choice) {
+                case 1:
+                    vocalLesson(meowdol);
+                    break;
+                case 2:
+                    meowdol.showWalkOptions(map);
+                    meowdol.makeWalkChoice(scanner.nextInt(), map);
+                    break;
+            }
+        } else {
+            System.out.println("Invalid choice. Please try again.");
+        }
     }
 
     public void danceLesson(Meowdol meowdol) {
@@ -66,7 +131,7 @@ public class TrainingAcademy extends Building{
     }
 
     public static void main(String[] args) {
-        
+
     }
 
 }
