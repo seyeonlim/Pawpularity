@@ -53,6 +53,8 @@ public class Main {
                 "You can't just train you meowdol at your house; You and your meowdol should walk to where you want to go!");
         System.out.println(
                 "The buildings are marked on the map, and you can open your map whenever you want to see your current position.");
+        System.out.println("The buildings are indicated as initials.");
+        System.out.println("H: Home, M: Mall, B: Beauty Salon, D: Dance Academy, V: Vocal Academy, S: Studio, R: Radio Station, G: Gym, C: Competition");
         System.out.println(" ");
         System.out.println(
                 "That's it for the tutorial! I gave your meowdol 50 pawrency as a welcome gift. ENJOY! ฅ^•ﻌ•^ฅ");
@@ -87,6 +89,8 @@ public class Main {
                 System.out.println("1. Open wardrobe");
                 System.out.println("2. Go to sleep");
                 System.out.println("3. Go outside");
+                System.out.println("4. Check balance");
+                System.out.println("5. Check skills");
 
                 // get the user's choice
                 int choice = scanner.nextInt();
@@ -94,8 +98,8 @@ public class Main {
                 while (!validChoice) {
                     try {
                         choice = scanner.nextInt();
-                        if (choice < 1 || choice > 3) {
-                            System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+                        if (choice < 1 || choice > 5) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 5.");
                         } else {
                             validChoice = true;
                         }
@@ -183,6 +187,12 @@ public class Main {
 
                         }
                         break;
+                    case 4:
+                        player.checkBalance();
+                        break;
+                    case 5:
+                        player.checkSkills();
+                        break;
                 }
 
                 // go back to the top of the loop
@@ -190,7 +200,7 @@ public class Main {
 
             } else if (player.xPosition == 1 && player.yPosition == 5) {
                 // display the available actions for the store
-                System.out.println("You are inside the clothing store.");
+                System.out.println("You are inside the mall.");
                 System.out.println("What would you like your meowdol to do?");
                 System.out.println("1. Buy fedora");
                 System.out.println("2. Buy beanie");

@@ -26,12 +26,6 @@ public class Meowdol {
     public Meowdol(String name) {
             this.name = name;
         }
-    
-
-    public void changeName(String newName) {
-        this.name = newName;
-        System.out.println("Your Meowdol's name is now " + this.name + ". /ᐠ｡▿｡ᐟ\\*ᵖᵘʳʳ*");
-    }
 
     public void checkBalance() {
         System.out.println(this.name + " has " + this.pawrency + " pawrency.");

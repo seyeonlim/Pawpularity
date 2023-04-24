@@ -1,16 +1,15 @@
 import java.util.Random;
 
-public class Competition extends Building{
+public class Competition extends Building {
 
     public Competition(String name, int row, int column) {
         super(name, row, column);
     }
 
-    Random random = new Random();
-    int randomNumber = random.nextInt(4);
-
     public void compete(Meowdol meowdol) {
         if (meowdol.competitionCount < 1) {
+            Random random = new Random();
+            int randomNumber = random.nextInt(4);
             if (randomNumber == 0) {
                 System.out.println(meowdol.name + " found an opponent! They are a newbie.");
                 System.out.println(meowdol.name + " and newbie started their talent battle!");
@@ -26,6 +25,7 @@ public class Competition extends Building{
                 } else {
                     System.out.println("Oh, no! " + meowdol.name + " lost to a newbie. Let's get some more training!");
                 }
+                meowdol.competitionCount++;
             }
             if (randomNumber == 1) {
                 System.out.println(meowdol.name + " found an opponent! They are a beginner.");
@@ -43,6 +43,7 @@ public class Competition extends Building{
                     System.out
                             .println("Oh, no! " + meowdol.name + " lost to a beginner. Let's get some more training!");
                 }
+                meowdol.competitionCount++;
             }
             if (randomNumber == 2) {
                 System.out.println(meowdol.name + " found an opponent! They are an intermediate.");
@@ -60,6 +61,7 @@ public class Competition extends Building{
                     System.out.println(
                             "Oh, no! " + meowdol.name + " lost to an intermediate. Let's get some more training!");
                 }
+                meowdol.competitionCount++;
             }
             if (randomNumber == 3) {
                 System.out.println(meowdol.name + " found an opponent! They are a professional.");
@@ -77,12 +79,12 @@ public class Competition extends Building{
                     System.out.println(
                             "Oh, no! " + meowdol.name + " lost to a professional. Let's get some more training!");
                 }
+                meowdol.competitionCount++;
             }
         } else {
             System.out.println(meowdol.name + " cannot participate in a competition more than once a day! (T^T)");
         }
 
     }
-
 
 }
