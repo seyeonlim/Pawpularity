@@ -62,15 +62,5 @@ public class Meowdol {
         map.updateMap(this);
     }
 
-    public void takeTaxi(int newXPosition, int newYPosition) {
-        if (this.pawrency >= 100) {
-            this.xPosition = newXPosition;
-            this.yPosition = newYPosition;
-            this.pawrency -= 100;
-        } else {
-            System.out.println(this.name + " doesn't have enough pawrency to take the taxi! T^T");
-        }
-    }
-
 
 }

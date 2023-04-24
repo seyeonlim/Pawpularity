@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -63,7 +64,7 @@ public class Main {
         System.out.print("Name your meowdol: ");
         meowdolName = scanner.nextLine();
         System.out.println(
-                "Great! Your meowdol's name is " + meowdolName + ". Type any character or number to continue.");
+                "Great! Your meowdol's name is " + meowdolName + ".");
 
         Meowdol player = new Meowdol(meowdolName);
         Map map = new Map(player);
@@ -78,149 +79,457 @@ public class Main {
         Home home = new Home("Home", 0, 0);
         Paparazzi p1 = new Paparazzi("Paparazzi 1", 3, 4);
         Paparazzi p2 = new Paparazzi("Paparazzi 2", 7, 1);
-        Paparazzi p3 = new Paparazzi("Paparazzi 3", 7, 6);
-        Paparazzi p4 = new Paparazzi("Paparazzi 4", 3, 4);
 
         int input = 0;
 
         while (true) {
-            if (scanner.hasNextInt()) {
-                scanner.nextLine();
-                // home
-                if (player.xPosition == 0 && player.yPosition == 0) {
-                    while (true) {
-                        System.out.println("You are at home. What do you want " + player.name + " to do?");
-                        System.out.println("1. Open wardrobe");
-                        System.out.println("2. Go to bed");
-                        System.out.println("3. Go outside");
-                        input = scanner.nextInt();
-                        if (input == 1) {
-                            System.out.println(player.name + " opened the wardrobe. This is what they have:");
-                            home.seeWardrobe(player);
-                            System.out.println("What do you want" + player.name + "to do?");
-                            System.out.println("1. Wear fedora (This can be done only when you have a fedora.)");
-                            System.out.println("2. Wear beanie (This can be done only when you have a fedora.)");
-                            System.out.println("3. Wear birthday cone (This can be done only when you have a fedora.)"); // need to work more
-                            System.out.println("4. Close wardrobe");
-                            if (input == 1 && player.wardrobe.containsKey("Fedora")) {
-                                home.wearFedora(player);
-                            } else if (input == 2 && player.wardrobe.containsKey("Beanie")) {
-                                home.wearBeanie(player);
-                            } else if (input == 3 && player.wardrobe.containsKey("Birthday Cone")) {
-                                home.wearBirthdayCone(player);
-                            } else if (input == 4) {
-                                System.out.println("You closed the wardrobe.");
-                            } else {
-                                System.out.println("Your input is invalid. (You either put");
-                            }
-                        } else if (input == 2) {
-                            home.sleep(player);
-                        } else if (input == 3) {
-                            player.yPosition = 1;
-                            break;
-                        } else {
-                            System.out.println(
-                                    "Please enter a valid number! Your response should not include any characters nor numbers that are not in the option.");
-                            System.out.println("Enter any character or number to continue.");
-                            scanner.next();
-                        }
-                    }
-                    // Clothing store
-                } else if (player.xPosition == 1 && player.yPosition == 5) {
-                    System.out.println("You are at the clothing store. What do you want your meowdol to do?");
-                    System.out.println("1. Buy a fedora");
-                    System.out.println("2. Buy a beanie");
-                    System.out.println("3. Buy a birthday cone");
+            // check if the character is inside a building
+            if (player.xPosition == 0 && player.yPosition == 0) {
+                // display the available actions for home
+                System.out.println("You are at home.");
+                System.out.println("What would you like your meowdol to do?");
+                System.out.println("1. Open wardrobe");
+                System.out.println("2. Go to sleep");
+                System.out.println("3. Go outside");
 
-                    // When user is not inside a building
-                } else {
-                    System.out.println("You are outside. These are your options:");
-                    System.out.println("1. Walk");
-                    System.out.println("2. Take a taxi (Consumes 100 pawrency)");
-                    if (input == 1) {
-                        System.out.println(
-                                "You chose to walk. Which direction do you want to go to? @ is your current position.");
-                        map.showMap(player);
-                        System.out.println("1. North");
-                        System.out.println("2. South");
-                        System.out.println("3. East");
-                        System.out.println("4. West");
+                // get the user's choice
+                int choice = scanner.nextInt();
+                boolean validChoice = false;
+                while (!validChoice) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 1 || choice > 3) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+                        } else {
+                            validChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
                     }
                 }
-            } else {
-                System.out.println(
-                        "Please enter a valid number! Your response should not include any characters.");
-                scanner.next();
+                // perform the chosen action
+                switch (choice) {
+                    case 1:
+                        System.out.println(player.name + " opened the wardrobe. This is what they have:");
+                        home.seeWardrobe(player);
+                        System.out.println(
+                                "What would you like your meowdol to do? (These actions can be done only if you have the item");
+                        System.out.println("1. Wear fedora");
+                        System.out.println("2. Wear beanie");
+                        System.out.println("3. Wear birthday cone");
+                        int clothesChoice = scanner.nextInt();
+                        boolean validClothesChoice = false;
+                        while (!validClothesChoice) {
+                            try {
+                                clothesChoice = scanner.nextInt();
+                                if (clothesChoice < 1 || clothesChoice > 3) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+                                } else {
+                                    validClothesChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
+                            }
+                        }
+                        switch (clothesChoice) {
+                            case 1:
+                                home.wearFedora(player);
+                                break;
+                            case 2:
+                                home.wearBeanie(player);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                        }
+                        break;
+                    case 2:
+                        home.sleep(player);
+                        break;
+                    case 3:
+                        // execute the walk method and offer options for walking direction
+                        System.out.println("Which direction would you like to go? @ is your current position.");
+                        map.showMap(player);
+                        System.out.println("1. Walk north");
+                        System.out.println("2. Walk south");
+                        System.out.println("3. Walk east");
+                        System.out.println("4. Walk west");
+                        int directionChoice = scanner.nextInt();
+                        boolean validDirectionChoice = false;
+                        while (!validDirectionChoice) {
+                            try {
+                                directionChoice = scanner.nextInt();
+                                if (directionChoice < 1 || directionChoice > 4) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                                } else {
+                                    validDirectionChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
+                            }
+                        }
+                        switch (directionChoice) {
+                            case 1:
+                                player.walk("North", map);
+                                break;
+                            case 2:
+                                player.walk("South", map);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                            case 4:
+                                player.walk("West", map);
+                                break;
+
+                        }
+                        break;
+                }
+
+                // go back to the top of the loop
+                continue;
+
+            } else if (player.xPosition == 1 && player.yPosition == 5) {
+                // display the available actions for the store
+                System.out.println("You are inside the clothing store.");
+                System.out.println("What would you like your meowdol to do?");
+                System.out.println("1. Buy fedora");
+                System.out.println("2. Buy beanie");
+                System.out.println("3. Buy birthday cone");
+                System.out.println("4. Go outside");
+
+                // get the user's choice
+                int choice = scanner.nextInt();
+                boolean validChoice = false;
+                while (!validChoice) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 1 || choice > 4) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                        } else {
+                            validChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
+                    }
+                }
+
+                // perform the chosen action
+                switch (choice) {
+                    case 1:
+                        clothingStore.buyFedora(player);
+                        break;
+                    case 2:
+                        clothingStore.buyBeanie(player);
+                        break;
+                    case 3:
+                        clothingStore.buyBirthdayCone(player);
+                        break;
+                    case 4:
+                        System.out.println("Which direction would you like to go? @ is your current position.");
+                        map.showMap(player);
+                        System.out.println("1. Walk north");
+                        System.out.println("2. Walk south");
+                        System.out.println("3. Walk east");
+                        System.out.println("4. Walk west");
+                        int directionChoice = scanner.nextInt();
+                        boolean validDirectionChoice = false;
+                        while (!validDirectionChoice) {
+                            try {
+                                directionChoice = scanner.nextInt();
+                                if (directionChoice < 1 || directionChoice > 4) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                                } else {
+                                    validDirectionChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
+                            }
+                        }
+                        switch (directionChoice) {
+                            case 1:
+                                player.walk("North", map);
+                                break;
+                            case 2:
+                                player.walk("South", map);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                            case 4:
+                                player.walk("West", map);
+                                break;
+
+                        }
+                        break;
+                }
+
+                // go back to the top of the loop
+                continue;
+
+            } else if (player.xPosition == 3 && player.yPosition == 5) {
+                // display the available actions for the store
+                System.out.println("You are inside the beauty salon.");
+                System.out.println("What would you like your meowdol to do?");
+                System.out.println("1. Get hair done");
+                System.out.println("2. Get make up done");
+                System.out.println("3. Get nails done");
+                System.out.println("4. Go outside");
+
+                // get the user's choice
+                int choice = scanner.nextInt();
+                boolean validChoice = false;
+                while (!validChoice) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 1 || choice > 4) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                        } else {
+                            validChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
+                    }
+                }
+
+                // perform the chosen action
+                switch (choice) {
+                    case 1:
+                        beautySalon.getHairDone(player);
+                        break;
+                    case 2:
+                        beautySalon.getMakeUpDone(player);
+                        break;
+                    case 3:
+                        beautySalon.getNailsDone(player);
+                        break;
+                    case 4:
+                        System.out.println("Which direction would you like to go? @ is your current position.");
+                        map.showMap(player);
+                        System.out.println("1. Walk north");
+                        System.out.println("2. Walk south");
+                        System.out.println("3. Walk east");
+                        System.out.println("4. Walk west");
+                        int directionChoice = scanner.nextInt();
+                        boolean validDirectionChoice = false;
+                        while (!validDirectionChoice) {
+                            try {
+                                directionChoice = scanner.nextInt();
+                                if (directionChoice < 1 || directionChoice > 4) {
+                                    System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                                } else {
+                                    validDirectionChoice = true;
+                                }
+                            } catch (InputMismatchException e) {
+                                System.out.println("Invalid input. Please enter a number.");
+                                scanner.next(); // discard invalid input
+                            }
+                        }
+                        switch (directionChoice) {
+                            case 1:
+                                player.walk("North", map);
+                                break;
+                            case 2:
+                                player.walk("South", map);
+                                break;
+                            case 3:
+                                player.walk("East", map);
+                                break;
+                            case 4:
+                                player.walk("West", map);
+                                break;
+
+                        }
+                        break;
+                }
+
+                // go back to the top of the loop
+                continue;
+
+            } else if (player.xPosition == 0 && player.yPosition == 8) {
+                System.out.println("You are at the studio.");
+                System.out.println("What do you want your meowdol to do?");
+                System.out.println("1. Film a TV show");
+                System.out.println("2. Shoot an advertisement");
+                System.out.println("3. Go outside");
+                int choice = scanner.nextInt();
+                boolean validChoice = false;
+                while (!validChoice) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 1 || choice > 3) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 3.");
+                        } else {
+                            validChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
+                    }
+                }
+                switch (choice) {
+                    case 1:
+                        studio.shootTVShow(player);
+                        break;
+                    case 2:
+                        studio.shootAd(player);
+                        break;
+                    case 3:
+                    System.out.println("Which direction would you like to go? @ is your current position.");
+                    map.showMap(player);
+                    System.out.println("1. Walk north");
+                    System.out.println("2. Walk south");
+                    System.out.println("3. Walk east");
+                    System.out.println("4. Walk west");
+                    int directionChoice = scanner.nextInt();
+                    boolean validDirectionChoice = false;
+                    while (!validDirectionChoice) {
+                        try {
+                            directionChoice = scanner.nextInt();
+                            if (directionChoice < 1 || directionChoice > 4) {
+                                System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                            } else {
+                                validDirectionChoice = true;
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Invalid input. Please enter a number.");
+                            scanner.next(); // discard invalid input
+                        }
+                    }
+                    switch (directionChoice) {
+                        case 1:
+                            player.walk("North", map);
+                            break;
+                        case 2:
+                            player.walk("South", map);
+                            break;
+                        case 3:
+                            player.walk("East", map);
+                            break;
+                        case 4:
+                            player.walk("West", map);
+                            break;
+
+                    }
+                    break;
+
+                }
+                continue;
+            } else if (player.xPosition == 5 && player.yPosition == 9) {
+                System.out.println("You are at the studio.");
+                System.out.println("What do you want your meowdol to do?");
+                System.out.println("1. Record a radio program");
+                System.out.println("2. Go outside");
+                int choice = scanner.nextInt();
+                boolean validChoice = false;
+                while (!validChoice) {
+                    try {
+                        choice = scanner.nextInt();
+                        if (choice < 1 || choice > 2) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 2.");
+                        } else {
+                            validChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
+                    }
+                }
+                switch (choice) {
+                    case 1:
+                        studio.recordRadioProgram(player);
+                        break;
+                    case 2:
+                    System.out.println("Which direction would you like to go? @ is your current position.");
+                    map.showMap(player);
+                    System.out.println("1. Walk north");
+                    System.out.println("2. Walk south");
+                    System.out.println("3. Walk east");
+                    System.out.println("4. Walk west");
+                    int directionChoice = scanner.nextInt();
+                    boolean validDirectionChoice = false;
+                    while (!validDirectionChoice) {
+                        try {
+                            directionChoice = scanner.nextInt();
+                            if (directionChoice < 1 || directionChoice > 4) {
+                                System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                            } else {
+                                validDirectionChoice = true;
+                            }
+                        } catch (InputMismatchException e) {
+                            System.out.println("Invalid input. Please enter a number.");
+                            scanner.next(); // discard invalid input
+                        }
+                    }
+                    switch (directionChoice) {
+                        case 1:
+                            player.walk("North", map);
+                            break;
+                        case 2:
+                            player.walk("South", map);
+                            break;
+                        case 3:
+                            player.walk("East", map);
+                            break;
+                        case 4:
+                            player.walk("West", map);
+                            break;
+
+                    }
+                    break;
+
+                }
+                continue;
+            }
+            
+            else {
+                System.out.println("Which direction would you like to go? @ is your current position.");
+                map.showMap(player);
+                System.out.println("1. Walk north");
+                System.out.println("2. Walk south");
+                System.out.println("3. Walk east");
+                System.out.println("4. Walk west");
+                int directionChoice = scanner.nextInt();
+                boolean validDirectionChoice = false;
+                while (!validDirectionChoice) {
+                    try {
+                        directionChoice = scanner.nextInt();
+                        if (directionChoice < 1 || directionChoice > 4) {
+                            System.out.println("Invalid choice. Please enter a number between 1 and 4.");
+                        } else {
+                            validDirectionChoice = true;
+                        }
+                    } catch (InputMismatchException e) {
+                        System.out.println("Invalid input. Please enter a number.");
+                        scanner.next(); // discard invalid input
+                    }
+                }
+                switch (directionChoice) {
+                    case 1:
+                        player.walk("North", map);
+                        break;
+                    case 2:
+                        player.walk("South", map);
+                        break;
+                    case 3:
+                        player.walk("East", map);
+                        break;
+                    case 4:
+                        player.walk("West", map);
+                        break;
+
+                }
+                continue;
             }
 
-            /*
-             * // beauty salon
-             * if (player.xPosition == 3 && player.yPosition == 5) {
-             * System.out.
-             * println("You are at the beauty salon. What do you want your meowdol to do?");
-             * }
-             * // radio station
-             * if (player.xPosition == 5 && player.yPosition == 9) {
-             * System.out.
-             * println("You are at the radio station. What do you want your meowdol to do?"
-             * );
-             * }
-             * // studio
-             * if (player.xPosition == 0 && player.yPosition == 8) {
-             * System.out.
-             * println("You are at the studio. What do you want your meowdol to do?");
-             * }
-             * // dance academy
-             * if (player.xPosition == 4 && player.yPosition == 0) {
-             * System.out.
-             * println("You are at the dance academy. What do you want your meowdol to do?"
-             * );
-             * }
-             * // vocal academy
-             * if (player.xPosition == 2 && player.yPosition == 2) {
-             * System.out.
-             * println("You are at the vocal academy. What do you want your meowdol to do?"
-             * );
-             * }
-             * // competition
-             * if (player.xPosition == 8 && player.yPosition == 6) {
-             * System.out.
-             * println("You are at the competition. What do you want your meowdol to do?");
-             * }
-             * // gym
-             * if (player.xPosition == 6 && player.yPosition == 2) {
-             * System.out.println("You are at the gym. What do you want your meowdol to do?"
-             * );
-             * }
-             * // p1
-             * if (player.xPosition == 4 && player.yPosition == 3) {
-             * System.out.
-             * println("You are spotted by a paparazzi! What do you want your meowdol to do?"
-             * );
-             * }
-             * // p2
-             * if (player.xPosition == 1 && player.yPosition == 7) {
-             * System.out.
-             * println("You are spotted by a paparazzi! What do you want your meowdol to do?"
-             * );
-             * }
-             * // p3
-             * if (player.xPosition == 6 && player.yPosition == 7) {
-             * System.out.
-             * println("You are spotted by a paparazzi! What do you want your meowdol to do?"
-             * );
-             * }
-             * // p4
-             * if (player.xPosition == 4 && player.yPosition == 3) {
-             * System.out.
-             * println("You are spotted by a paparazzi! What do you want your meowdol to do?"
-             * );
-             * }
-             */
+            // scanner.close();
 
         }
-
-        // scanner.close();
-
     }
 }
