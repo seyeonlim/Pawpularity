@@ -130,8 +130,4 @@ public class TrainingAcademy extends Building {
         System.out.println(meowdol.name + "'s current vocal lesson count: " + meowdol.vocalLessonCount);
     }
 
-    public static void main(String[] args) {
-
-    }
-
 }

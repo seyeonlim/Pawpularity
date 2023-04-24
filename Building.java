@@ -1,5 +1,5 @@
 public class Building {
-    
+
     public String name;
     public int row;
     public int column;

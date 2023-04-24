@@ -89,8 +89,6 @@ public class Home extends Building {
         } else {
             System.out.println("Invalid choice. Please try again.");
         }
-        // move the 'continue' statement here
-        // continue; will be after the if statement in main
     }
 
     public void sleep(Meowdol meowdol) {
@@ -199,98 +197,3 @@ public class Home extends Building {
     }
 
 }
-
-/*
- * // perform the chosen action
- * switch (choice) {
- * case 1:
- * System.out.println(player.name +
- * " opened the wardrobe. This is what they have:");
- * home.seeWardrobe(player);
- * System.out.println(
- * "What would you like your meowdol to do? (These actions can be done only if you have the item"
- * );
- * System.out.println("1. Wear fedora");
- * System.out.println("2. Wear beanie");
- * System.out.println("3. Wear birthday cone");
- * int clothesChoice = scanner.nextInt();
- * boolean validClothesChoice = false;
- * while (!validClothesChoice) {
- * try {
- * clothesChoice = scanner.nextInt();
- * if (clothesChoice < 1 || clothesChoice > 3) {
- * System.out.println("Invalid choice. Please enter a number between 1 and 3.");
- * } else {
- * validClothesChoice = true;
- * }
- * } catch (InputMismatchException e) {
- * System.out.println("Invalid input. Please enter a number.");
- * scanner.next(); // discard invalid input
- * }
- * }
- * switch (clothesChoice) {
- * case 1:
- * home.wearFedora(player);
- * break;
- * case 2:
- * home.wearBeanie(player);
- * break;
- * case 3:
- * home.wearBirthdayCone(player);
- * break;
- * }
- * break;
- * case 2:
- * home.sleep(player);
- * break;
- * case 3:
- * // execute the walk method and offer options for walking direction
- * System.out.
- * println("Which direction would you like to go? @ is your current position.");
- * map.showMap(player);
- * System.out.println("1. Walk north");
- * System.out.println("2. Walk south");
- * System.out.println("3. Walk east");
- * System.out.println("4. Walk west");
- * int directionChoice = scanner.nextInt();
- * boolean validDirectionChoice = false;
- * while (!validDirectionChoice) {
- * try {
- * directionChoice = scanner.nextInt();
- * if (directionChoice < 1 || directionChoice > 4) {
- * System.out.println("Invalid choice. Please enter a number between 1 and 4.");
- * } else {
- * validDirectionChoice = true;
- * }
- * } catch (InputMismatchException e) {
- * System.out.println("Invalid input. Please enter a number.");
- * scanner.next(); // discard invalid input
- * }
- * }
- * switch (directionChoice) {
- * case 1:
- * player.walk("North", map);
- * break;
- * case 2:
- * player.walk("South", map);
- * break;
- * case 3:
- * player.walk("East", map);
- * break;
- * case 4:
- * player.walk("West", map);
- * break;
- * 
- * }
- * break;
- * case 4:
- * player.checkBalance();
- * break;
- * case 5:
- * player.checkSkills();
- * break;
- * }
- * 
- * // go back to the top of the loop
- * continue;
- */
