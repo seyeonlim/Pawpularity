@@ -1,23 +1,16 @@
 public class Mapp {
 
-    public char[][] map; // make this as building array instead
-    public char userPosition = '@';
+    public Building[][] map;
 
     public Mapp(Meowdol meowdol) {
-        map = new char[10][10];
-        for (int y = 0; y < 10; y++) {
-            for (int x = 0; x < 10; x++) {
-                map[y][x] = '.';
-            }
-        }
-        map[meowdol.yPosition][meowdol.xPosition] = userPosition;
+        map = new Building[10][10];
     }
 
     public void showMap(Meowdol meowdol) {
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 10; x++) {
                 if (meowdol.xPosition == x && meowdol.yPosition == y) {
-                    System.out.print(userPosition + " ");
+                    System.out.print("@ ");
                 } else if (x == 0 && y == 0) {
                     System.out.print("H ");
                 } else if (x == 2 && y == 2) {
@@ -44,22 +37,16 @@ public class Mapp {
         }
     }
 
-    public Boolean validate4(int input) {
-        if (input < 1 || input > 4) {
-            return false;
-        } else {
-            return true;
-        }
+    public void setBuilding(int x, int y, Building building) {
+        map[y][x] = building;
     }
 
-    public void updateMap(Meowdol meowdol) {
-        for (int y = 0; y < 10; y++) {
-            for (int x = 0; x < 10; x++) {
-                if (map[y][x] == userPosition) {
-                    map[y][x] = '.';
-                }
-            }
-        }
-        map[meowdol.yPosition][meowdol.xPosition] = userPosition;
+    public Building getCurrentPosition(Meowdol player) {
+        return map[player.yPosition][player.xPosition];
     }
+    
+
+    
+    
 }
+

@@ -70,7 +70,6 @@ public class Meowdol {
         } else {
             System.out.println(this.name + " reached the end of the map. Let's go to another direction!");
         }
-        map.updateMap(this);
     }
 
     public void makeWalkChoice(int choice, Mapp map) {
