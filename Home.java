@@ -1,6 +1,11 @@
 import java.util.Map;
 import java.util.Scanner;
-
+/**
+ * Course: CSC 120 (section 2)
+ * @author Seyeon Lim
+ * @version 
+ *          Description: 
+ */
 public class Home extends Building {
 
     public Home(String name, int row, int column) {

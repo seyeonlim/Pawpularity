@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+/**
+ * Course: CSC 120 (section 2)
+ * @author Seyeon Lim
+ * @version 
+ *          Description: 
+ */
 public class DanceAcademy extends Building {
 
     public DanceAcademy(String name, int row, int column) {

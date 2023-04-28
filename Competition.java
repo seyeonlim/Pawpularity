@@ -1,6 +1,11 @@
 import java.util.Random;
 import java.util.Scanner;
-
+/**
+ * Course: CSC 120 (section 2)
+ * @author Seyeon Lim
+ * @version 
+ * Description: 
+ */
 public class Competition extends Building {
 
     public Competition(String name, int row, int column) {
@@ -14,7 +19,7 @@ public class Competition extends Building {
         System.out.println("2. Go outside");
     }
 
-    public Boolean validate2(int input) {
+    public Boolean validate2(int input) { //min and a max
         if (input < 1 || input > 2) {
             return false;
         } else {

@@ -1,5 +1,10 @@
 public class Mapp {
-
+/**
+ * Course: CSC 120 (section 2)
+ * @author Seyeon Lim
+ * @version 
+ *          Description: 
+ */
     public Building[][] map;
 
     public Mapp(Meowdol meowdol) {

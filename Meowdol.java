@@ -1,7 +1,9 @@
 import java.util.Hashtable;
-
 /**
- * 
+ * Course: CSC 120 (section 2)
+ * @author Seyeon Lim
+ * @version 
+ *          Description: 
  */
 public class Meowdol {
 

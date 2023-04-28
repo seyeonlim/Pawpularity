@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+/**
+ * Course: CSC 120 (section 2)
+ * @author Seyeon Lim
+ * @version 
+ *          Description: 
+ */
 public class Gym extends Building {
 
     public Gym(String name, int row, int column) {

@@ -1,5 +1,10 @@
 import java.util.Scanner;
-
+/**
+ * Course: CSC 120 (section 2)
+ * @author Seyeon Lim
+ * @version 
+ * Description: 
+ */
 public class BeautySalon extends Building {
 
     public BeautySalon(String name, int row, int column) {

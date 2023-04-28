@@ -1,16 +1,15 @@
 import java.util.Scanner;
 
+/**
+ * Course: CSC 120 (section 2)
+ * 
+ * @author Seyeon Lim
+ * @version
+ *          Description:
+ */
 public class Main {
 
         private static String meowdolName;
-
-        public static Boolean validate4(int input) {
-                if (input < 1 || input > 4) {
-                        return false;
-                } else {
-                        return true;
-                }
-        }
 
         public static void main(String[] args) {
                 System.out.println(
@@ -110,19 +109,30 @@ public class Main {
                 map.setBuilding(6, 2, gym);
 
                 while (true) {
-                        System.out.println("Current position: " + map.getCurrentPosition(player));
-
-                        Building currentPostition = map.getCurrentPosition(player); // returns map[player.yPosition][player.xPosition]
+                        Building currentPostition = map.getCurrentPosition(player); // returns
+                                                                                    // map[player.yPosition][player.xPosition]
                         if (currentPostition == null) {
                                 player.showWalkOptions(map);
-                                player.makeWalkChoice(scanner.nextInt(), map);
+                                try {
+                                        player.makeWalkChoice(scanner.nextInt(), map);
+                                } catch (Exception e) {
+                                        System.out.println("Invalid input. Please try again.");
+                                        scanner.nextLine();
+                                }
                         } else {
-                                currentPostition.showOptionsAndMakeChoice(map, player, scanner, home, mall,
-                                                beautySalon, studio, radioStation, danceAcademy, vocalAcademy, gym,
-                                                competition, meowdolName);
+                                //do scanner.nextLine too in the building
+                                currentPostition.showOptionsAndMakeChoice(map, player, scanner);
+                        }
+
+                        if(player.danceEXP >= 400 && player.vocalEXP >= 400 && player.attractiveness >= 400 && player.fame >= 400) {
+                                System.out.println("Congratulations! Your meowdol successfully debuted!");
                         }
                         continue;
+
+                        
                 }
+
+                
 
         }
 }
