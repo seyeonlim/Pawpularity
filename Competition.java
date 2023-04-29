@@ -4,14 +4,24 @@ import java.util.Scanner;
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
  * @version 
- * Description: 
+ * Description: A Competition class that extends Building. Has a competition constructor, showOptions and makeChoice methods to allow users to see possible action options and make choice,
+ *              a validate method to validate user input, and a compete method for the meowdol to compete against other meowdols.
  */
 public class Competition extends Building {
 
+    /**
+     * A competition constructor.
+     * @param name name of the competition competition building
+     * @param row the y position of the competition building
+     * @param column the x position of the competition building
+     */
     public Competition(String name, int row, int column) {
         super(name, row, column);
     }
 
+    /**
+     * A method for printing out possible options in competition building
+     */
     public void showOptions() {
         System.out.println("You are at a competition.");
         System.out.println("What do you want your meowdol to do?");
@@ -19,24 +29,30 @@ public class Competition extends Building {
         System.out.println("2. Go outside");
     }
 
-    public Boolean validate2(int input) { //min and a max
-        if (input < 1 || input > 2) {
+    /**
+     * A method that validates user input
+     * @param input input from the user
+     * @param min minimum value of valid input
+     * @param max maximum value of valid input
+     * @return Boolean that checks if the input is valid or not
+     */
+    public Boolean validate(int input, int min, int max) {
+        if (input < min || input > max) {
             return false;
         } else {
             return true;
         }
     }
 
-    public Boolean validate4(int input) {
-        if (input < 1 || input > 4) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
+    /**
+     * A method that allows user to make choice among possible options
+     * @param meowdol the meowdol of the game
+     * @param map the map of the game
+     * @param choice input from user
+     * @param scanner scanner for scanning user input
+     */
     public void makeChoice(Meowdol meowdol, Mapp map, int choice, Scanner scanner) {
-        Boolean validation1 = validate2(choice);
+        Boolean validation1 = validate(choice, 1, 2);
         if (validation1) {
             switch (choice) {
                 case 1:
@@ -52,6 +68,10 @@ public class Competition extends Building {
         }
     }
 
+    /**
+     * A method that allows user to compete against other meowdols with different levels of talents
+     * @param meowdol the meowdol of the game
+     */
     public void compete(Meowdol meowdol) {
         if (meowdol.competitionCount < 1) {
             Random random = new Random();

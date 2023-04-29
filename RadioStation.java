@@ -3,14 +3,24 @@ import java.util.Scanner;
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
  * @version 
- *          Description: 
+ * Description: A RadioStation class that extends Building class. Has a radio station constructor, a showOptions and makeChoice methods to print out possible action options
+ *              and allow users to make choice, and a recordRadioProgram method to make a meowdol record a radio program
  */
 public class RadioStation extends Building {
 
+    /**
+     * A radio station constructor
+     * @param name name of radio station
+     * @param row the y position of the radio station
+     * @param column the x position of the radio station
+     */
     public RadioStation(String name, int row, int column) {
         super(name, row, column);
     }
 
+    /**
+     * A method that prints out possible action options
+     */
     public void showOptions() {
         System.out.println("You are at the radio station.");
         System.out.println("What do you want your meowdol to do?");
@@ -19,16 +29,30 @@ public class RadioStation extends Building {
 
     }
 
-    public Boolean validate2(int input) {
-        if (input < 1 || input > 2) {
+    /**
+     * A method that validates user input
+     * @param input user input
+     * @param min minimum valid user input
+     * @param max maxiumum valid user input
+     * @return Boolean that tells if the user input is valid or not
+     */
+    public Boolean validate(int input, int min, int max) {
+        if (input < min || input > max) {
             return false;
         } else {
             return true;
         }
     }
 
-    public void makeChoice(Meowdol meowdol, Studio studio, Mapp map, int choice, Scanner scanner) {
-        Boolean validation1 = validate2(choice);
+    /**
+     * A method that allows user to make choice among possible options
+     * @param meowdol the meowdol of the game
+     * @param map the map of the game
+     * @param choice input from user
+     * @param scanner scanner for scanning user input
+     */
+    public void makeChoice(Meowdol meowdol, Mapp map, int choice, Scanner scanner) {
+        Boolean validation1 = validate(choice, 1, 2);
         if (validation1) {
             switch (choice) {
                 case 1:
@@ -44,6 +68,10 @@ public class RadioStation extends Building {
         }
     }
 
+    /**
+     * A method that makes a meowdol to record a radio program
+     * @param meowdol meowdol of the game
+     */
     public void recordRadioProgram(Meowdol meowdol) {
         if (meowdol.radioCount < 1) {
             if (meowdol.fame >= 100 && meowdol.danceEXP >= 100 && meowdol.vocalEXP >= 100) {

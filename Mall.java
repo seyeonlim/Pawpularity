@@ -3,14 +3,24 @@ import java.util.Scanner;
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
  * @version 
- *          Description: 
+ * Description: A Mall class that extends Building class. Has a mall constructor and methods for showing possible action options
+ *              , allowing user to choose an option, and buy fedora, beanie, or birthday cone
  */
 public class Mall extends Building {
 
+    /**
+     * A mall constructor
+     * @param name name of mall
+     * @param row the y position of mall
+     * @param column the x position of mall
+     */
     public Mall(String name, int row, int column) {
         super(name, row, column);
     }
 
+    /**
+     * A method that prints out possible action options
+     */
     public void showOptions() {
         System.out.println("You are inside the mall.");
         System.out.println("What would you like your meowdol to do?");
@@ -20,16 +30,30 @@ public class Mall extends Building {
         System.out.println("4. Go outside");
     }
 
-    public Boolean validate4(int input) {
-        if (input < 1 || input > 4) {
+    /**
+     * A method that validates user input
+     * @param input user input
+     * @param min minimum valid user input
+     * @param max maxiumum valid user input
+     * @return Boolean that tells if the user input is valid or not
+     */
+    public Boolean validate(int input, int min, int max) {
+        if (input < min || input > max) {
             return false;
         } else {
             return true;
         }
     }
 
+    /**
+     * A method that allows user to make choice among possible options
+     * @param meowdol the meowdol of the game
+     * @param map the map of the game
+     * @param choice input from user
+     * @param scanner scanner for scanning user input
+     */
     public void makeChoice(Meowdol meowdol, Mapp map, int choice, Scanner scanner) {
-        Boolean validation1 = validate4(choice);
+        Boolean validation1 = validate(choice, 1, 4);
         if (validation1) {
             switch (choice) {
                 case 1:
@@ -51,7 +75,10 @@ public class Mall extends Building {
         }
     }
 
-    // should check if the store the user is in is clothing store not beauty salon
+    /**
+     * A method that allows user to buy a ferora
+     * @param meowdol meowdol of the game
+     */
     public void buyFedora(Meowdol meowdol) {
         if (meowdol.wardrobe.containsKey("Fedora")) {
             System.out.println(meowdol.name + " already has a fedora. Let's not waste our pawrency!");
@@ -64,6 +91,10 @@ public class Mall extends Building {
         }
     }
 
+    /**
+     * A method that allows user to buy a beanie
+     * @param meowdol meowdol of the game
+     */
     public void buyBeanie(Meowdol meowdol) {
         if (meowdol.wardrobe.containsKey("Beanie")) {
             System.out.println(meowdol.name + " already has a beanie. Let's not waste our pawrency!");
@@ -76,6 +107,10 @@ public class Mall extends Building {
         }
     }
 
+    /**
+     * A method that allows user to buy a birthday cone
+     * @param meowdol meowdol of the game
+     */
     public void buyBirthdayCone(Meowdol meowdol) {
         if (meowdol.wardrobe.containsKey("Birthday Cone")) {
             System.out.println(meowdol.name + " already has a birthday cone. Let's not waste our pawrency!");

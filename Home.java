@@ -4,14 +4,24 @@ import java.util.Scanner;
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
  * @version 
- *          Description: 
+ * Description: A Home class that extends Building class. Has a home constructor and methods for showing possible action options
+ *              , allowing user to choose an option, a meowdol to sleep, see wardrobe, and get changed
  */
 public class Home extends Building {
 
+    /**
+     * A Home constructor
+     * @param name name of home
+     * @param row the y position of home
+     * @param column the x position of home
+     */
     public Home(String name, int row, int column) {
         super(name, row, column);
     }
 
+    /**
+     * A method that prints out possible action options at home
+     */
     public void showOptions() {
         System.out.println("You are at home.");
         System.out.println("What would you like your meowdol to do?");
@@ -22,6 +32,10 @@ public class Home extends Building {
         System.out.println("5. Check skills");
     }
 
+    /**
+     * A method that shows possible action options after opening the wardrobe
+     * @param meowdol the meowdol of the game
+     */
     public void showWardrobeOptions(Meowdol meowdol) {
         System.out.println(meowdol.name + " opened the wardrobe. This is what they have:");
         seeWardrobe(meowdol);
@@ -35,16 +49,28 @@ public class Home extends Building {
 
     }
 
-    public Boolean validate5(int input) { // should it be input??
-        if (input < 1 || input > 5) {
+    /**
+     * A method that validates user input
+     * @param input user input
+     * @param min minimum valid user input
+     * @param max maxiumum valid user input
+     * @return Boolean that tells if the user input is valid or not
+     */
+    public Boolean validate(int input, int min, int max) {
+        if (input < min || input > max) {
             return false;
         } else {
             return true;
         }
     }
 
+    /**
+     * A method that allows user to make choice among wardrobe options
+     * @param meowdol the meowdol of the game
+     * @param choice user input
+     */
     public void makeWardrobeChoice(Meowdol meowdol, int choice) {
-        Boolean wardrobeChoice = validate5(choice);
+        Boolean wardrobeChoice = validate(choice, 1, 5);
         if (wardrobeChoice) {
             switch (choice) {
                 case 1:
@@ -69,8 +95,15 @@ public class Home extends Building {
 
     }
 
+    /**
+     * A method that allows user to make choice among possible options
+     * @param meowdol the meowdol of the game
+     * @param map the map of the game
+     * @param choice input from user
+     * @param scanner scanner for scanning user input
+     */
     public void makeChoice(Meowdol meowdol, Mapp map, int choice, Scanner scanner) {
-        Boolean validation1 = validate5(choice);
+        Boolean validation1 = validate(choice, 1, 5);
         if (validation1) {
             switch (choice) {
                 case 1:
@@ -96,6 +129,10 @@ public class Home extends Building {
         }
     }
 
+    /**
+     * A method to make a meowdol go to sleep
+     * @param meowdol meowdol of the game
+     */
     public void sleep(Meowdol meowdol) {
         // make sure to reset all counts
         if (meowdol.xPosition == 0 && meowdol.yPosition == 0) {
@@ -112,6 +149,10 @@ public class Home extends Building {
         }
     }
 
+    /**
+     * A method that prints out a list of hats the meowdol owns
+     * @param meowdol meowdol of the game
+     */
     public void seeWardrobe(Meowdol meowdol) {
         System.out.println("=====" + meowdol.name + "'s wardrobe!=====");
         for (Map.Entry<String, Boolean> entry : meowdol.wardrobe.entrySet()) {
@@ -123,6 +164,10 @@ public class Home extends Building {
         System.out.println("===========================");
     }
 
+    /**
+     * A method that makes the meowdol wear a fedora
+     * @param meowdol the meowdol of the game
+     */
     public void wearFedora(Meowdol meowdol) {
         if (meowdol.wardrobe.containsKey("Fedora")) {
             if (meowdol.wardrobe.containsKey("Beanie") && meowdol.wardrobe.get("Beanie") == false
@@ -142,6 +187,10 @@ public class Home extends Building {
         }
     }
 
+    /**
+     * A method that makes the meowdol wear a beanie
+     * @param meowdol the meowdol of the game
+     */
     public void wearBeanie(Meowdol meowdol) {
         if (meowdol.wardrobe.containsKey("Beanie")) {
             if (meowdol.wardrobe.containsKey("Fedora") && meowdol.wardrobe.get("Fedora") == false
@@ -161,6 +210,10 @@ public class Home extends Building {
         }
     }
 
+    /**
+     * A method that makes the meowdol wear a birthday cone
+     * @param meowdol the meowdol of the game
+     */
     public void wearBirthdayCone(Meowdol meowdol) {
         if (meowdol.wardrobe.containsKey("Birthday Cone")) {
             if (meowdol.wardrobe.containsKey("Fedora") && meowdol.wardrobe.get("Fedora") == false
@@ -179,6 +232,10 @@ public class Home extends Building {
         }
     }
 
+    /**
+     * A method that makes a meowdol to take off their hat
+     * @param meowdol meowdol of the game
+     */
     public void takeOffHat(Meowdol meowdol) {
         if (meowdol.wardrobe.containsKey("Fedora") || meowdol.wardrobe.containsKey("Beanie")
                 || meowdol.wardrobe.containsKey("Birthday Cone")) {

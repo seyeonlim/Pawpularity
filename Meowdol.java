@@ -3,10 +3,30 @@ import java.util.Hashtable;
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
  * @version 
- *          Description: 
+ * Description: A Meowdol class with meowdol constructor with methods for checking balance and skills, walking, and choosing a direction    
+ *              to walk to.
  */
 public class Meowdol {
 
+    /**
+     * String name name of meowdol
+     * int xPosition setting default x position of meowdol to 0
+     * int yPosition setting default y position of meowdol to 0
+     * int danceEXP setting default danceEXP of meowdol to 0 
+     * int vocalEXP setting default vocalEXP of meowdol to 0 
+     * int fame setting default fame of meowdol to 0 
+     * int attractiveness setting default attractiveness of meowdol to 0 
+     * int pawrency setting default pawrency of meowdol to 50
+     * int dayCount setting the first day of game to day 1
+     * int danceLessonCount setting default danceLessonCount of meowdol to 0 
+     * int vocalLessonCount setting default vocalLessonCount of meowdol to 0 
+     * int TVShowCount setting default TVShowCount of meowdol to 0 
+     * int adCount setting default adCount of meowdol to 0 
+     * int radioCount setting default radioCount of meowdol to 0 
+     * int gymCount setting default gymCount of meowdol to 0 
+     * int competitionCount setting default competitionCount of meowdol to 0 
+     * Hashtable wardrobe creating the wardrobe of meowdol
+     */
     public String name;
     public int xPosition = 0;
     public int yPosition = 0;
@@ -25,22 +45,39 @@ public class Meowdol {
     public int competitionCount = 0;
     public Hashtable<String, Boolean> wardrobe = new Hashtable<String, Boolean>();
 
+    /**
+     * A meowdol constructor
+     * @param name name of Meowdol
+     */
     public Meowdol(String name) {
         this.name = name;
     }
 
-    public Boolean validate4(int input) {
-        if (input < 1 || input > 4) {
+    /**
+     * A method that validates user input
+     * @param input user input
+     * @param min minimum valid user input
+     * @param max maxiumum valid user input
+     * @return Boolean that tells if the user input is valid or not
+     */
+    public Boolean validate(int input, int min, int max) {
+        if (input < min || input > max) {
             return false;
         } else {
             return true;
         }
     }
 
+    /**
+     * A method that prints out how much pawrency the meowdol owns
+     */
     public void checkBalance() {
         System.out.println(this.name + " has " + this.pawrency + " pawrency.");
     }
 
+    /**
+     * A method that prints out current skill status of meowdol
+     */
     public void checkSkills() {
         System.out.println("=====Skill Report=====");
         System.out.println("/ᐠ｡ꞈ｡ᐟ\\: " + this.name);
@@ -51,6 +88,10 @@ public class Meowdol {
         System.out.println("======================");
     }
 
+    /**
+     * A method that prints out the possible directions to walk to 
+     * @param map map of the game
+     */
     public void showWalkOptions(Mapp map) {
         System.out.println("Which direction would you like to go? @ is your current position.");
         map.showMap(this);
@@ -60,6 +101,11 @@ public class Meowdol {
         System.out.println("4. Walk west");
     }
 
+    /**
+     * A method that allows a meowdol to walk
+     * @param direction the direction the meowdol will walk to
+     * @param map map of the game
+     */
     public void walk(String direction, Mapp map) {
         if (direction == "North" && this.yPosition > 0) {
             this.yPosition--;
@@ -74,8 +120,13 @@ public class Meowdol {
         }
     }
 
+    /**
+     * A method that allows user to choose which direction to walk to 
+     * @param choice user input
+     * @param map map of the game
+     */
     public void makeWalkChoice(int choice, Mapp map) {
-        Boolean directionChoice = validate4(choice);
+        Boolean directionChoice = validate(choice, 1, 4);
         if (directionChoice) {
             switch (choice) {
                 case 1:

@@ -5,7 +5,7 @@ import java.util.Scanner;
  * 
  * @author Seyeon Lim
  * @version
- *          Description:
+ * Description: A Main class for the execution of the game.
  */
 public class Main {
 
