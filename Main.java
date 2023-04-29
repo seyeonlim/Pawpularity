@@ -126,6 +126,7 @@ public class Main {
 
                         if(player.danceEXP >= 400 && player.vocalEXP >= 400 && player.attractiveness >= 400 && player.fame >= 400) {
                                 System.out.println("Congratulations! Your meowdol successfully debuted!");
+                                System.out.println("You may continue the game, but this message will still be here!");
                         }
                         continue;
 
