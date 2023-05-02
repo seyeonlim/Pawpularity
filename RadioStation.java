@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A RadioStation class that extends Building class. Has a radio station constructor, a showOptions and makeChoice methods to print out possible action options
  *              and allow users to make choice, and a recordRadioProgram method to make a meowdol record a radio program
  */

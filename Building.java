@@ -4,7 +4,7 @@ import java.util.Scanner;
  * Course: CSC 120 (section 2)
  * 
  * @author Seyeon Lim
- * @version
+ * @version May 4, 2023
  * Description: A building class for constructing a building. Has showOpsions() and makeChoice() methods that are overridden and a showOptionsAndMakeChoice method for
  *              printing out the appropriate action options at a certain building and making choices.
  */

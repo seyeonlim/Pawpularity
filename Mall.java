@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A Mall class that extends Building class. Has a mall constructor and methods for showing possible action options
  *              , allowing user to choose an option, and buy fedora, beanie, or birthday cone
  */

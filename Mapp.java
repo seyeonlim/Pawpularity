@@ -1,7 +1,7 @@
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A class for making a 2D array map of buildings. Has methods for visualizing the map, allocate buildings in the map, 
  *              and getting the current position of the meowdol.
  */

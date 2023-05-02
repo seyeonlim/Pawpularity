@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A BeautySalon class that extends Building class. Can construct a beauty salon, show options of activities that can be done
  *              in a beauty salon, validate user input, make choice of action, and get hair, make up, and nails done.
  */

@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A VocalAcademy class that extends Building class. Has a vocal academy constructor, a showOptions and makeChoice methods to print out possible action options
  *              and allow users to make choice, a vocalLesson method to make a meowdol take dance lessons, and a currentVocalLessonCount method that counts the number of
  *              vocal lessons the meowdol took.

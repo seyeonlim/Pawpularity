@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A DanceAcademy class that extends Building class. Has a dance academy constructor, a showOptions and makeChoice methods to print out possible action options
  *              and allow users to make choice, a danceLesson method to make a meowdol take dance lessons, and a currentDanceLessonCount method that counts the number of
  *              dance lessons the meowdol took.

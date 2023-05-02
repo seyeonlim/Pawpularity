@@ -2,9 +2,8 @@ import java.util.Scanner;
 
 /**
  * Course: CSC 120 (section 2)
- * 
  * @author Seyeon Lim
- * @version
+ * @version May 4, 2023
  * Description: A Main class for the execution of the game.
  */
 public class Main {

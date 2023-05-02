@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A Competition class that extends Building. Has a competition constructor, showOptions and makeChoice methods to allow users to see possible action options and make choice,
  *              a validate method to validate user input, and a compete method for the meowdol to compete against other meowdols.
  */

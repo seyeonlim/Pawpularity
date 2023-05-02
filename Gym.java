@@ -2,7 +2,7 @@ import java.util.Scanner;
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A Gym class that extends Building class. Has a gym constructor, a showOptions and makeChoice methods to print out possible action options
  *              and allow users to make choice, and an exercise method that makes a meowdol to exercise. 
  */

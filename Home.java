@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A Home class that extends Building class. Has a home constructor and methods for showing possible action options
  *              , allowing user to choose an option, a meowdol to sleep, see wardrobe, and get changed
  */

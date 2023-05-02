@@ -2,7 +2,7 @@ import java.util.Hashtable;
 /**
  * Course: CSC 120 (section 2)
  * @author Seyeon Lim
- * @version 
+ * @version May 4, 2023
  * Description: A Meowdol class with meowdol constructor with methods for checking balance and skills, walking, and choosing a direction    
  *              to walk to.
  */
