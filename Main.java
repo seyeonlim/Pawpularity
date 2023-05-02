@@ -51,6 +51,7 @@ public class Main {
                 System.out
                                 .println("Your meowdol's talent is determined by their danceEXP, vocalEXP, attractiveness, and fame.");
                 System.out.println("You have many ways to increase these EXPs!");
+                System.out.println("Your skills must be higher than 400 for every section to debut.");
                 System.out.println("What you can do are the followings:");
                 System.out.println(
                                 "* Make your meowdol take dance and vocal lessons at the academy to increase danceEXP and vocalEXP");
