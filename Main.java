@@ -8,8 +8,16 @@ import java.util.Scanner;
  */
 public class Main {
 
+        /**
+         * A variable for naming the meowdol
+         */
         private static String meowdolName;
 
+        /**
+         * A main for executing the game. A tutorial is printed out, and all the buildings are created
+         * and set in the map once executed.
+         * @param args
+         */
         public static void main(String[] args) {
                 System.out.println(
                                 "╔═══════════════════════════════*.·:·.✧ ✦ ✧.·:·.*═════════════════════════════════╗");
