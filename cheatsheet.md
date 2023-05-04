@@ -53,25 +53,15 @@ This file will contain documentation for all commands available in your game.
 
 Map of the game:
 H . . . D . . . . .
-
 . . . . . . . . . . 
-
 . . V . . . G . . . 
-
 . . . . . . . . . . 
-
 . . . . . . . . . . 
-
 . M . B . . . . . . 
-
 . . . . . . . . C . 
-
 . . . . . . . . . . 
-
 S . . . . . . . . . 
-
 . . . . . R . . . . 
-
 
 H: Home
 M: Mall
