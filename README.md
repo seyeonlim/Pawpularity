@@ -8,6 +8,10 @@
  - `cheatsheet.md`
  - Completed `rubric.md`
   
+## Design justification
+My initial plan for the main method was to make multiple if statements to find out if the player's current position is inside a building or not. The map of the game was a 2D array of characters, and I didn't have a showOptions nor a makeChoice method for each class but rather but all the commands inside the if statements, which made my code more procedural. It also made my main class extremely long. However, by making the map of this game a 2D array of Buildings and making each buidlings having their own showOptions and makeChoice methods by overriding, the code became much more compact, object oriented, and easier for other people to understand. 
+
+
 ## Additional Reflection Questions
  - What was your **overall approach** to tackling this project?
 
@@ -15,7 +19,7 @@ As my game was based on the activities the player does in a certain building, th
 
  - What **new thing(s)** did you learn / figure out in completing this project?
 
-I first learned how to make my program more object-oriented. Initially, my Main class was full of if statements to check if the player was in a certain building or not. Also, my map was a 2D array of characters instead of Buildings. This made my program extremely long and more like a procedural program. Instead of doing so, by overriding common methods like showOptions or makeChoice and making a getCurrentPosition method in Mapp class that returns the player's current position, I could make the program decide which options to display to the user instead of the user's position going through all the if statements. 
+I first learned how to make my program more object-oriented. As I mentioned abouve, my Main class was full of if statements to check if the player was in a certain building or not. Also, my map was a 2D array of characters instead of Buildings. This made my program extremely long and more like a procedural program. Instead of doing so, by overriding common methods like showOptions or makeChoice and making a getCurrentPosition method in Mapp class that returns the player's current position, I could make the program decide which options to display to the user instead of the user's position going through all the if statements. 
 
 I also learned how to use and create ASCII art, which was used to display pictures of a cat dancing, singing, wearing hats, and more. This added a visual element to my text-based game, which I believe made my game more interesting and engaging. 
 
