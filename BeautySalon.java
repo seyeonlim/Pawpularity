@@ -82,6 +82,7 @@ public class BeautySalon extends Building {
     public void getHairDone(Meowdol meowdol) {
         if (meowdol.pawrency >= 100) {
             System.out.println(meowdol.name + " got their hair done! Attractiveness increased by 10!");
+            meowdol.pawrency -= 100;
             meowdol.attractiveness += 10;
         } else {
             System.out.println(meowdol.name + " doesn't have enough pawrency... Let's make some money first!");
@@ -95,6 +96,7 @@ public class BeautySalon extends Building {
     public void getMakeUpDone(Meowdol meowdol) {
         if (meowdol.pawrency >= 150) {
             System.out.println(meowdol.name + " got their make up done! Attractiveness increased by 15!");
+            meowdol.pawrency -= 150;
             meowdol.attractiveness += 15;
         } else {
             System.out.println(meowdol.name + " doesn't have enough pawrency... Let's make some money first!");
@@ -108,6 +110,7 @@ public class BeautySalon extends Building {
     public void getNailsDone(Meowdol meowdol) {
         if (meowdol.pawrency >= 50) {
             System.out.println(meowdol.name + " got their nails done! Attractiveness increased by 5!");
+            meowdol.pawrency -= 50;
             meowdol.attractiveness += 5;
         } else {
             System.out.println(meowdol.name + " doesn't have enough pawrency... Let's make some money first!");
