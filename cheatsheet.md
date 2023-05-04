@@ -83,16 +83,27 @@ That's it for the tutorial! I gave your meowdol 50 pawrency as a welcome gift. E
 - Go outside: Go outside and change your position.
 
 Map of the game:
+
 H . . . D . . . . .
+
 . . . . . . . . . . 
+
 . . V . . . G . . . 
+
 . . . . . . . . . . 
+
 . . . . . . . . . . 
+
 . M . B . . . . . . 
+
 . . . . . . . . C . 
+
 . . . . . . . . . . 
+
 S . . . . . . . . . 
+
 . . . . . R . . . . 
+
 
 H: Home
 M: Mall
