@@ -17,12 +17,16 @@ What you can do are the followings:
 * Make your meowdol record radio programs at the radio station to earn pawrency
 * Make your meowdol compete with other meowdols at competitions to increase fame
 * Make your meowdol wear the clothes they bought at the clothing store or sleep to move on to the next day at home.
+
 IMPORTANT NOTE: There are limits on how many times you can do these activities a day; your meowdol should go to sleep to get more training!
+
 Phew! That was a lot of explanation. I still have several things left to tell you! Please keep up.
 You can't just train you meowdol at your house; You and your meowdol should walk to where you want to go!
 The buildings and your position are marked on the map, and you can see your map when you choose to go outside.
 The buildings are indicated as initials.
+
 H: Home, M: Mall, B: Beauty Salon, D: Dance Academy, V: Vocal Academy, S: Studio, R: Radio Station, G: Gym, C: Competition
+
 That's it for the tutorial! I gave your meowdol 50 pawrency as a welcome gift. ENJOY! ฅ^•ﻌ•^ฅ
 
 
