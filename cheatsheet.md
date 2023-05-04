@@ -82,8 +82,7 @@ That's it for the tutorial! I gave your meowdol 50 pawrency as a welcome gift. E
 - Compete with other meowdol: Compete against another meowdol and increase your fame by 20, 50, 100, or 300 depending on your competitor level.
 - Go outside: Go outside and change your position.
 
-Note: A tutorial is printed out once the game is executed.
-The meowdol's skills must be higher than 400 for every section (danceEXP, vocalEXP, fame, attractiveness) to debut.
+Note: The meowdol's skills must be higher than 400 for every section (danceEXP, vocalEXP, fame, attractiveness) to debut.
 Once all of the skills reach 400, a message will be printed, saying the meowdol successfully debuted.
 Although the player can continue playing the game, this message will continuously appear.
 
