@@ -51,7 +51,7 @@ public class Main {
                                 "╚═══════════════════════════════*.·:·.✧ ✦ ✧.·:·.*═════════════════════════════════╝");
 
                 System.out.println(
-                                "Welcome to <Pawpularity: The Road To Debut>! I'm Mr.Whisker Biscuits, your guide for this game! ฅ^•ﻌ•^ฅ");
+                                "Welcome to <Pawpularity: The Road To Debut>!");
                 System.out.println("You are now a manager of a meowdol (meow + idol), who is a cat idol trainee.");
                 System.out.println("You need to train your meowdol so they can debut!");
                 System.out.println(" ");

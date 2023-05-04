@@ -3,7 +3,7 @@ This file will contain documentation for all commands available in your game.
 ## Tutorial
 Below is the tutorial that the users get once they execute the game. 
 
-Welcome to <Pawpularity: The Road To Debut>! I'm Mr.Whisker Biscuits, your guide for this game! ฅ^•ﻌ•^ฅ"
+Welcome to <Pawpularity: The Road To Debut>!
 You are now a manager of a meowdol (meow + idol), who is a cat idol trainee.
 You need to train your meowdol so they can debut!
 Your meowdol's talent is determined by their danceEXP, vocalEXP, attractiveness, and fame.
