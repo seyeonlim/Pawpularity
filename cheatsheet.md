@@ -1,6 +1,33 @@
 This file will contain documentation for all commands available in your game.
 
-"You" in this document indicates the meowdol. (The player is the manager of the meowdol.)
+## Tutorial
+Below is the tutorial that the users get once they execute the game. 
+
+Welcome to <Pawpularity: The Road To Debut>! I'm Mr.Whisker Biscuits, your guide for this game! ฅ^•ﻌ•^ฅ"
+You are now a manager of a meowdol (meow + idol), who is a cat idol trainee.
+You need to train your meowdol so they can debut!
+Your meowdol's talent is determined by their danceEXP, vocalEXP, attractiveness, and fame.
+You have many ways to increase these EXPs!
+Your skills must be higher than 400 for every section to debut.
+What you can do are the followings:
+* Make your meowdol take dance and vocal lessons at the academy to increase danceEXP and vocalEXP
+* Take your meowdol to the clothing store or the beauty salon to increase their attractiveness
+* Take your meowdol to the gym to exercise and increase their attractiveness
+* Make your meowdol film TV shows or shoot advertisements at the studio to earn pawrency (pawrency is the currency in Pawpularity world!)
+* Make your meowdol record radio programs at the radio station to earn pawrency
+* Make your meowdol compete with other meowdols at competitions to increase fame
+* Make your meowdol wear the clothes they bought at the clothing store or sleep to move on to the next day at home.
+IMPORTANT NOTE: There are limits on how many times you can do these activities a day; your meowdol should go to sleep to get more training!
+Phew! That was a lot of explanation. I still have several things left to tell you! Please keep up.
+You can't just train you meowdol at your house; You and your meowdol should walk to where you want to go!
+The buildings and your position are marked on the map, and you can see your map when you choose to go outside.
+The buildings are indicated as initials.
+H: Home, M: Mall, B: Beauty Salon, D: Dance Academy, V: Vocal Academy, S: Studio, R: Radio Station, G: Gym, C: Competition
+That's it for the tutorial! I gave your meowdol 50 pawrency as a welcome gift. ENJOY! ฅ^•ﻌ•^ฅ
+
+
+## Available Commands
+"You" below indicates the meowdol. (The player is the manager of the meowdol.)
 
 1. Home
 - Open wardrobe: See what you have in your wardrobe
