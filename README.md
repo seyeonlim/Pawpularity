@@ -21,7 +21,7 @@ I also learned how to use and create ASCII art, which was used to display pictur
 
  - Is there anything that you wish you had **implemented differently**?
 
- I originally had a TrainingAcademy class, which was to create a dance academy and a vocal academy. My plan was to make a single TrainingAcademy class instead of making two classes, a DanceAcademy class and a VocalAcademy class, as it seemed to make the program more compact. However, although a dance academy and a vocal academy had very similar methods, which was a method for getting a lesson, I had to make separate classes because they had different showOptions and makeChoice methods. The same thing applies to BeautySalon class and Mall class, as they both have methods for purchasing something. I wish I could have combined these classes.
+ I originally had a TrainingAcademy class, which was to create a dance academy and a vocal academy. My plan was to make a single TrainingAcademy class instead of making two classes, a DanceAcademy class and a VocalAcademy class, as it seemed to make the program more compact. However, although a dance academy and a vocal academy had very similar methods, which was a method for getting a lesson, I had to make separate classes because they had different showOptions and makeChoice methods. The same thing applies to BeautySalon class and Mall class, although they both have methods for purchasing something. I wish I could have combined these classes, but with my current method of overriding showOptions and makeChoice methods, I thought separating them was more feasible. 
 
  - If you had **unlimited time**, what additional features would you implement?
 
@@ -36,5 +36,5 @@ I also learned how to use and create ASCII art, which was used to display pictur
  I would tell myself to focus on writing down a clear pseudocode before starting to write down the program. I would also tell her to remember that my program has to be object-oriented, not procedural. 
 
  - _If you worked with a team:_ please comment on how your **team dynamics** influenced your experience working on this project.
- 
+
  I worked individually.
