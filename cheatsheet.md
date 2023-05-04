@@ -82,7 +82,7 @@ That's it for the tutorial! I gave your meowdol 50 pawrency as a welcome gift. E
 - Compete with other meowdol: Compete against another meowdol and increase your fame by 20, 50, 100, or 300 depending on your competitor level.
 - Go outside: Go outside and change your position.
 
-Map of the game:
+## Map of the game:
 
 H . . . D . . . . .
 
