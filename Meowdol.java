@@ -9,23 +9,7 @@ import java.util.Hashtable;
 public class Meowdol {
 
     /**
-     * String name name of meowdol
-     * int xPosition setting default x position of meowdol to 0
-     * int yPosition setting default y position of meowdol to 0
-     * int danceEXP setting default danceEXP of meowdol to 0 
-     * int vocalEXP setting default vocalEXP of meowdol to 0 
-     * int fame setting default fame of meowdol to 0 
-     * int attractiveness setting default attractiveness of meowdol to 0 
-     * int pawrency setting default pawrency of meowdol to 50
-     * int dayCount setting the first day of game to day 1
-     * int danceLessonCount setting default danceLessonCount of meowdol to 0 
-     * int vocalLessonCount setting default vocalLessonCount of meowdol to 0 
-     * int TVShowCount setting default TVShowCount of meowdol to 0 
-     * int adCount setting default adCount of meowdol to 0 
-     * int radioCount setting default radioCount of meowdol to 0 
-     * int gymCount setting default gymCount of meowdol to 0 
-     * int competitionCount setting default competitionCount of meowdol to 0 
-     * Hashtable wardrobe creating the wardrobe of meowdol
+     * Default values needed for a Meowdol.
      */
     public String name;
     public int xPosition = 0;
